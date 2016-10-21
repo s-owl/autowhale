@@ -1,0 +1,27 @@
+{
+  "name": "neds3",
+  "version": "0.0.1",
+  "description": "Node.js based Elastic Docker Swarm Services Scaler",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skhu-sss/neds3.git"
+  },
+  "keywords": [
+    "docker",
+    "autoscaler"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/skhu-sss/neds3/issues"
+  },
+  "homepage": "https://github.com/skhu-sss/neds3#readme",
+  "dependencies": {
+    "dockerode": "^2.3.1"
+  }
+}
