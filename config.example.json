@@ -1,0 +1,16 @@
+[
+  {
+    "name" : "nginx",
+    "scale-type" : "resource",
+    "min-max" : [1, 5],
+    "cpu-usage" : 80,
+    "memory-usage" : 80,
+    "network-usage" : 80
+  },
+  {
+    "name" : "node-app",
+    "scale-type" : "time",
+    "min-max" : [1, 5],
+
+  }
+]
