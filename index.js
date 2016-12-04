@@ -4,9 +4,9 @@ const fs = require('fs');
 
 // Config file path
 const configPath = 'config.example.json';
-var configs;
-var Dockerode = require('dockerode');
-var docker = new Dockerode();
+let configs;
+const Dockerode = require('dockerode');
+const docker = new Dockerode();
 
 
 scaleServices();
@@ -18,8 +18,8 @@ function scaleServices(){
 
 }
 
-var loadConfig = function(){
-  return new new Promise(function(resolve, reject) {
+const loadConfig = function(){
+  return new Promise((resolve, reject)=>{
     fs.readFile(configPath, (err, data)=>{
       if(err != undefined){
         reject(err);
@@ -30,8 +30,8 @@ var loadConfig = function(){
   });
 }
 
-var getFilteredServices = function(configs){
-  return new new Promise(function(resolve, reject) {
+const getFilteredServices = function(configs){
+  return new Promise((resolve, reject)=>{
     // Get Available Docker Swarm Service List
     docker.listServices((err, services)=>{
       if(err != undefined){
@@ -39,15 +39,15 @@ var getFilteredServices = function(configs){
       }else{
         // Filter Services
         // Leave Only Configuered
-        var configured = services.filter((service)=>{
-          var isConfigured = configs.filter((config)=>{
+        let configured = services.filter((service)=>{
+          let isConfigured = configs.filter((config)=>{
             return config.name == service.Spec.Name;
           });
           return isConfigured.length == 1;
         });
 
         // Leave Only Replicated Services
-        var replicated = configured.filter((service)=>{
+        let replicated = configured.filter((service)=>{
           return service.Spec.Mode.Replicated != undefined;
         });
 
